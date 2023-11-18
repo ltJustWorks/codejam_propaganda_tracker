@@ -44,9 +44,14 @@ body {
 
 .fact-checker-close-btn:hover {
     background-color: #c1bebe;
-  }
+}
 
 .fact-checker-search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* Space between the SVG icon and text */
     padding: 10px 20px;
     background-color: #1C9BEF;
     color: white;
@@ -58,4 +63,11 @@ body {
 
 .fact-checker-search-btn:hover {
     background-color: #1C9BEF;
+}
+
+.search-icon {
+    width: 1em;
+    /* Size of the SVG icon */
+    height: 1em;
+    /* Size of the SVG icon */
 }
