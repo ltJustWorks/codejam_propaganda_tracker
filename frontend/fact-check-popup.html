@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Checker Popup</title>
+    <link rel="stylesheet" href="fact-check-popup.css">
+</head>
+
+<body>
+    <div class="fact-checker">
+        <div class="fact-checker-header">
+            <h1>Fact Checker</h1>
+            <button class="fact-checker-close-btn">&times;</button>
+        </div>
+        <div class="fact-checker-search">
+            <input type="text" class="fact-checker-input" placeholder="Enter fact to check">
+            <button class="fact-checker-search-btn">Check Now</button>
+        </div>
+        <div class="fact-checker-results">
+            <h2>About this result</h2>
+            <div class="fact-checker-result-content">
+                <!-- Result details will be dynamically inserted here -->
+            </div>
+            <h2>Source</h2>
+            <div class="fact-checker-source-content">
+                <!-- Source details will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+    <script src="fact-check-popup.js"></script>
+</body>
+
+</html>

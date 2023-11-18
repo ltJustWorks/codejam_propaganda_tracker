@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+}
+
+.fact-checker {
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.fact-checker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fact-checker-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.fact-checker-search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.fact-checker-input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.fact-checker-search-btn {
+    padding: 10px 20px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fact-checker-search-btn:hover {
+    background-color: #1991db;
+}
+
+.fact-checker-results {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.fact-checker-result-content,
+.fact-checker-source-content {
+    background-color: #444;
+    padding: 10px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    max-height: 100px;
+    /* Adjust as needed */
+    border-radius: 5px;
+}
+
+/* Scrollbar styles */
+.fact-checker-result-content::-webkit-scrollbar,
+.fact-checker-source-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.fact-checker-result-content::-webkit-scrollbar-thumb,
+.fact-checker-source-content::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 10px;
+}
+
+.fact-checker-result-content::-webkit-scrollbar-thumb:hover,
+.fact-checker-source-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
