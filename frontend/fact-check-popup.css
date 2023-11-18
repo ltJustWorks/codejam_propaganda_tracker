@@ -18,29 +18,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: -15px;
     margin-bottom: 20px;
 }
 
 .fact-checker-close-btn {
-    background: none;
-    border: none;
-    color: white;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    line-height: 23px;
     cursor: pointer;
-    font-size: 24px;
+    border-radius: 50%;
+    font-size: 20px;
+    border: 2px solid #ffffff;
+    transition: background-color 0.3s;
+    margin-top: -10px;
+    border: 2px solid #ffffff;
+    transition: background-color 0.3s;
+    margin-top: -3px;
 }
 
-.fact-checker-search {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.fact-checker-input {
-    flex-grow: 1;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-}
+.fact-checker-close-btn:hover {
+    background-color: #c1bebe;
+  }
 
 .fact-checker-search-btn {
     padding: 10px 20px;
@@ -49,10 +51,12 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: -20px;
+    margin-bottom: 30px;
 }
 
 .fact-checker-search-btn:hover {
-    background-color: #1991db;
+    background-color: #1C9BEF;
 }
 
 .fact-checker-results {
@@ -61,11 +65,19 @@ body {
     border-radius: 5px;
 }
 
-.fact-checker-result-content,
+.fact-checker-result-content {
+    background-color: #444;
+    padding: 1px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    max-height: 100px;
+    /* Adjust as needed */
+    border-radius: 5px;
+}
 .fact-checker-source-content {
     background-color: #444;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 50px;
+    margin-bottom: 20px;
     overflow-y: auto;
     max-height: 100px;
     /* Adjust as needed */
