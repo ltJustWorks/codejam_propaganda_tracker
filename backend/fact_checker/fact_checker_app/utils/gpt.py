@@ -1,3 +1,4 @@
+import json
 import openai
 import os
 
@@ -14,9 +15,9 @@ client = OpenAI(
 # )
 
 def get_prompt(tweet, summary):
-    return """Given the following information: 
+    return """You are given background information.
     Information: """ + summary + "\n" + """
-    Is the following tweet truthful?
+    Does the following tweet seem to be truthful, based on what is observed in the background information?
     Tweet: """ + tweet + """
     Explain your reasoning.
 """
@@ -29,4 +30,5 @@ def fact_check(tweet, data_dict):
       {"role": "user", "content": get_prompt(tweet, data_dict["summary"])}
       ]
     )
-    return result
+    json_result = result.choices[0].message.model_dump_json(indent=2)
+    return json.loads(json_result)

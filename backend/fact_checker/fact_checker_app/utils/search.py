@@ -46,6 +46,7 @@ def parse_results(results: str):
 
     parsed_results = results.split("], [")
     for string in parsed_results:
+        print("string:", string)
         string = string.replace("]", "")
         split_string = string.split("link:")
         link = split_string[1]
@@ -72,5 +73,18 @@ def get_search_result_dict(query):
         "summary": get_summary(query),
         "references": get_references(parse_results(get_results(query)))
     }
+
+def get_multiple_search_result_dict(query_list):
+    result_dict = {
+        "summary": "",
+        "references": []
+    }
+    for query in query_list:
+        query_dict = get_search_result_dict(query)
+        result_dict["summary"] += query_dict["summary"] + " "
+        for reference in query_dict["references"]:
+            result_dict["references"].append(reference)
+    
+    return result_dict
 
 #print(get_search_result_dict(string))
