@@ -124,3 +124,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
+
+from django.core.servers.basehttp import WSGIServer
+
+WSGIServer.handle_error = lambda *args, **kwargs: None

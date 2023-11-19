@@ -31,19 +31,24 @@ function App() {
 
   return (
     <div className="App">
-      <div className="title">
-        Fact Checker
-      </div>
-      <div className="content-fields">
-        <textarea placeholder='Type text here' value={input} onChange={(event) => handleInputChange(event, setInput)} style={{ overflow: 'hidden' }} />
-        <button onClick={() => handleClick()}>Check</button>
-      </div>
-      <div>
-        {response === ""
-          ? <p>Input your tweet to generate a response.</p>
-          : <p>{JSON.stringify(response)}</p>
-        }
-      </div>
+      {
+        response.length > 0
+          ? <></>
+          : <div><div className="title">
+            Fact Checker
+          </div>
+            <div className="content-fields">
+              <textarea placeholder='Type text here' value={input} onChange={(event) => handleInputChange(event, setInput)} style={{ overflow: 'hidden' }} />
+              <button onClick={() => handleClick()}>Check</button>
+            </div>
+            <div>
+              {response === ""
+                ? <p>Input your tweet to generate a response.</p>
+                : <p>{JSON.stringify(response)}</p>
+              }
+            </div></div>
+      }
+
       {
         loading
           ? <div className='loader'></div>

@@ -20,5 +20,5 @@ from django.urls import path
 from fact_checker_app import views
 
 urlpatterns = [
-    path('fact-check/', views.fact_check_view, name='fact_check'),
+    path("fact-check/", views.fact_check_view, name="fact_check"),
 ]
