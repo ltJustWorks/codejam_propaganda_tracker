@@ -13,12 +13,14 @@ function App() {
   const [input, setInput] = useState("")
   const [response, setResponse] = useState("")
   const [loading, setLoading] = useState(false)
+  const [references, setReferences] = useState([])
 
   const handleClick = async () => {
     try {
       setLoading(true)
       const response = await axios.get(`http://localhost:8000/fact-check/?input_string=${input}`)
       setResponse(response.data.result.response)
+      setReferences(response.data.result.references)
       setLoading(false)
 
     }
@@ -33,7 +35,7 @@ function App() {
         Fact Checker
       </div>
       <div className="content-fields">
-        <input type='text' placeholder='Type text here' onChange={(event) => handleInputChange(event, setInput)} />
+        <textarea placeholder='Type text here' value={input} onChange={(event) => handleInputChange(event, setInput)} style={{ overflow: 'hidden' }} />
         <button onClick={() => handleClick()}>Check</button>
       </div>
       <div>
@@ -46,6 +48,17 @@ function App() {
         loading
           ? <div className='loader'></div>
           : <></>
+      }
+      {references.length > 0
+        ? <div>References:</div>
+        : <></>
+      }
+      {
+        references.length > 0 && references.slice(0, 5).map(ref => (
+          <a href={ref.trim()} target="_blank" rel="noopener noreferrer">
+            {ref.trim()}
+          </a>
+        ))
       }
     </div>
   );

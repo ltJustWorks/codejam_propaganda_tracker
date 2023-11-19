@@ -2,6 +2,8 @@
   text-align: center;
   width: 300px;
   height: 300px;
+  font-size: 18px;
+  display: flex;
 }
 
 .App-logo {
@@ -114,4 +116,60 @@ p {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.references a {
+  display: block;
+  margin-bottom: 10px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.references a:hover {
+  text-decoration: underline;
+}
+
+input[type='text'] {
+  padding: 12px;
+  /* Increased padding */
+  height: auto;
+  /* Increased width */
+  margin-right: 5%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 1200px;
+  /* optional, to prevent it from getting too wide */
+  margin: 0 auto;
+}
+
+textarea {
+  width: 100%;
+  /* Full width of the container */
+  padding: 10px;
+  /* Padding inside the text area */
+  border: 1px solid #ccc;
+  /* Border for the text area */
+  border-radius: 4px;
+  /* Rounded corners */
+  box-sizing: border-box;
+  /* Include padding and border in the width */
+  min-height: 50px;
+  /* Minimum height */
+  overflow-y: scroll;
+  /* Show vertical scrollbar when needed */
+  resize: none;
+  /* Disable manual resizing */
+  line-height: 1.5;
+  /* Line height for text */
+}
+
+/* Optional: Adjust the height on focus or when not empty */
+textarea:focus,
+textarea:not(:placeholder-shown) {
+  min-height: 100px;
+}
+
+textarea {
+  overflow-y: scroll;
 }
