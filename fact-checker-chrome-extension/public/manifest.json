@@ -7,23 +7,14 @@
         "scripting"
     ],
     "action": {
-        "default_popup": "check-popup.html",
+        "default_popup": "index.html",
         "default_icon": {
             "16": "icons/Search16x16_logo.png",
             "48": "icons/Search48x48_logo.png",
             "128": "icons/Search128x128_logo.png"
         }
     },
-    "content_scripts": [
-        {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "content.js"
-            ]
-        }
-    ],
+
     "icons": {
         "16": "icons/Search16x16_logo.png",
         "48": "icons/Search48x48_logo.png",
