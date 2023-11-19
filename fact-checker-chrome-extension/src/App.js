@@ -11,12 +11,15 @@ const handleInputChange = (event, setInput) => {
 
 function App() {
   const [input, setInput] = useState("")
-  const [response, setResponse] = useState("test")
+  const [response, setResponse] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handleClick = async () => {
     try {
+      setLoading(true)
       const response = await axios.get(`http://localhost:8000/fact-check/?input_string=${input}`)
       setResponse(response.data.result.response)
+      setLoading(false)
 
     }
     catch (e) {
@@ -33,10 +36,17 @@ function App() {
         <input type='text' placeholder='Type text here' onChange={(event) => handleInputChange(event, setInput)} />
         <button onClick={() => handleClick()}>Check</button>
       </div>
-      <div>Input: {input}</div>
       <div>
-        <p>Response: {JSON.stringify(response)}</p>
+        {response === ""
+          ? <p>Input your tweet to generate a response.</p>
+          : <p>{JSON.stringify(response)}</p>
+        }
       </div>
+      {
+        loading
+          ? <div className='loader'></div>
+          : <></>
+      }
     </div>
   );
 }
