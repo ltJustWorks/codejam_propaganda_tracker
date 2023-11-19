@@ -5,7 +5,7 @@ function VerdictSymbol({ verdict }) {
         UNTRUTHFUL: { color: 'red', fontWeight: 'bold' }
     }[verdict] || {};
 
-    return <p style={style}>verdict</p>;
+    return <p style={style}>{verdict}</p>;
 }
 
 export default VerdictSymbol;
