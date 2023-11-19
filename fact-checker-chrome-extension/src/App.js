@@ -5,29 +5,24 @@ import axios from 'axios'
 
 const DJANGO_ENDPOINT = "http://127.0.0.1:8000"
 
-const handleInputChange = (newInput, setInput) => {
-  setInput(newInput);
+const handleInputChange = (event, setInput) => {
+  setInput(event.target.value);
 }
 
 function App() {
   const [input, setInput] = useState("")
-  const [response, setResponse] = useState(null)
-  const [inputSubmitted, setInputSubmitted] = useState(false)
+  const [response, setResponse] = useState("test")
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(DJANGO_ENDPOINT + "fact-check/?input_string=" + input)
-        setResponse(response)
-      }
-      catch (e) {
-        console.error("error while getting api response:", e)
-      }
+  const handleClick = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8000/fact-check/?input_string=${input}`)
+      setResponse(response.data.result.response)
+
     }
-
-    fetchData()
-    //setInputSubmitted(false)
-  }, [inputSubmitted])
+    catch (e) {
+      console.log("error while getting api response:", e)
+    }
+  }
 
   return (
     <div className="App">
@@ -35,11 +30,12 @@ function App() {
         Fact Checker
       </div>
       <div className="content-fields">
-        <input type='text' placeholder='Type text here' onChange={(newInput) => handleInputChange(newInput, setInput)} />
-        <button onClick={() => setInputSubmitted(true)}>Check</button>
+        <input type='text' placeholder='Type text here' onChange={(event) => handleInputChange(event, setInput)} />
+        <button onClick={() => handleClick()}>Check</button>
       </div>
+      <div>Input: {input}</div>
       <div>
-        {response ? (<p>Response: {JSON.stringify(response, null, 2)}</p>) : null}
+        <p>Response: {JSON.stringify(response)}</p>
       </div>
     </div>
   );

@@ -6,10 +6,12 @@ from django.http import JsonResponse
 
 from .utils.fact_checker import tweet_fact_checker
 
+
 def fact_check_view(request):
-    if 'input_string' in request.GET:
-        input_string = request.GET['input_string']
+    if "input_string" in request.GET:
+        input_string = request.GET["input_string"]
         response = tweet_fact_checker(input_string)
-        return JsonResponse({'result': response})
+        print(response)
+        return JsonResponse({"result": response})
     else:
-        return JsonResponse({'error': 'Please provide an input string.'})
+        return JsonResponse({"error": "Please provide an input string."})

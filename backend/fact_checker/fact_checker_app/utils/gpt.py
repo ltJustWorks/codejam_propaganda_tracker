@@ -4,7 +4,7 @@ from openai import OpenAI
 
 client = OpenAI(
     # defaults to os.environ.get("OPENAI_API_KEY")
-    # api_key="My API Key",
+    api_key="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",
 )
 # defaults to getting the key using os.environ.get("OPENAI_API_KEY")
 # if you saved the key under a different environment variable name, you can do something like:
