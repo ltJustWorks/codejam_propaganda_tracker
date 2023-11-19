@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import VerdictSymbol from './VerdictSymbol';
 
 const DJANGO_ENDPOINT = "http://127.0.0.1:8000"
 
@@ -9,11 +10,24 @@ const handleInputChange = (event, setInput) => {
   setInput(event.target.value);
 }
 
+function findVerdict(paragraph) {
+  const verdicts = ["TRUTHFUL", "AMBIGUOUS", "UNTRUTHFUL"];
+
+  for (let verdict of verdicts) {
+    if (paragraph.includes(verdict)) {
+      return verdict;
+    }
+  }
+
+  return "";
+}
+
 function App() {
   const [input, setInput] = useState("")
   const [response, setResponse] = useState("")
   const [loading, setLoading] = useState(false)
   const [references, setReferences] = useState([])
+  const [verdict, setVerdict] = useState("")
 
   const handleClick = async () => {
     try {
@@ -29,13 +43,15 @@ function App() {
     }
   }
 
+  useEffect(() => { setVerdict(findVerdict(response)) }, [response])
+
   return (
     <div className="App">
       {
         response.length > 0
           ? <></>
           : <div><div className="title">
-            Fact Checker
+            <strong>Fact Checker</strong>
           </div>
             <div className="content-fields">
               <textarea placeholder='Type text here' value={input} onChange={(event) => handleInputChange(event, setInput)} style={{ overflow: 'hidden' }} />
@@ -51,10 +67,15 @@ function App() {
           ? <div className='loader'></div>
           : <></>
       }
+      {verdict
+        ? <VerdictSymbol verdict={verdict} />
+        : <></>
+      }
       {response === ""
         ? <p>Input your tweet to generate a response.</p>
         : <p>{JSON.stringify(response)}</p>
       }
+
       {references.length > 0 && !loading
         ? <div>References:</div>
         : <></>

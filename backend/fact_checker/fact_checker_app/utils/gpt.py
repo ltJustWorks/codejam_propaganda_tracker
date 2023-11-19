@@ -25,6 +25,9 @@ def get_prompt(tweet, summary):
         + tweet
         + """
     Explain your reasoning.
+    At the end of your response, choose one of three words that represents your verdict:
+    TRUTHFUL, AMBIGUOUS, UNTRUTHFUL
+    You must write the word in all capital letters.
 """
     )
 
