@@ -5,22 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fact Checker Search</title>
-    <link rel="stylesheet" href="search-prompt.css">
+    <link rel="stylesheet" href="check-popup.css">
 </head>
 
 <body>
     <div class="fact-checker-container">
         <div class="fact-checker-header">
             <h1>Fact Checker</h1>
-            <button class="fact-checker-close-btn">&times;</button>
+            <button id="close-button" class="fact-checker-close-btn">&times;</button>
         </div>
-        <div class="fact-checker-search">
-            <button class="fact-checker-search-btn">
+        <div class="fact-checker">
+            <button id="fact-check-submit" class="fact-checker-search-btn">
                 <img src="icons/magnifying-glass-solid.png" class="search-icon">
                 Check Now
             </button>
         </div>
     </div>
+
+    <script src="check-popup.js"></script>
+
 </body>
+
+
 
 </html>

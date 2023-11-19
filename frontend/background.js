@@ -1,19 +1,15 @@
-// chrome.runtime.onMessage.addListener(
-//     function (request, sender, sendResponse) {
-//         // You can send a request to your backend here
-//         if (request.contentScriptQuery == "fetchFactCheckData") {
-//             var url = "https://your-backend-api.com/factcheck";
-//             fetch(url, {
-//                 method: 'POST', // or 'GET'
-//                 body: JSON.stringify({ text: request.text }),
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 }
-//             })
-//                 .then(response => response.json())
-//                 .then(data => sendResponse({ factData: data }))
-//                 .catch(error => console.log('Error:', error));
-//             return true;  // Will respond asynchronously.
-//         }
-//     }
-// );
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+    if (msg.tweetText) {
+        fetch('https://your-api.com/api', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: msg.tweetText })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Send the data to result-popup.html
+                chrome.runtime.sendMessage({ action: "displayResult", data: data });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+});

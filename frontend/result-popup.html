@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fact Checker Popup</title>
-    <link rel="stylesheet" href="fact-check-popup.css">
+    <link rel="stylesheet" href="result-popup.css">
 </head>
 
 <body>
@@ -15,12 +15,17 @@
             <button class="fact-checker-close-btn">&times;</button>
         </div>
         <div class="fact-checker-search">
-            <button class="fact-checker-search-btn">Check Now</button>
+            <button class="fact-checker-search-btn">
+                <img src="icons/magnifying-glass-solid.png" class="search-icon">
+                Check Now
+            </button>
         </div>
         <div class="fact-checker-results">
             <h2>About this result</h2>
             <div class="fact-checker-result-content">
-                <!-- Result details will be dynamically inserted here -->
+                <div id="results"></div>
+                <script src="result-popup.js"></script>
+
             </div>
             <h2>Source</h2>
             <div class="fact-checker-source-content">
