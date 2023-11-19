@@ -42,10 +42,7 @@ function App() {
               <button onClick={() => handleClick()}>Check</button>
             </div>
             <div>
-              {response === ""
-                ? <p>Input your tweet to generate a response.</p>
-                : <p>{JSON.stringify(response)}</p>
-              }
+
             </div></div>
       }
 
@@ -54,7 +51,11 @@ function App() {
           ? <div className='loader'></div>
           : <></>
       }
-      {references.length > 0
+      {response === ""
+        ? <p>Input your tweet to generate a response.</p>
+        : <p>{JSON.stringify(response)}</p>
+      }
+      {references.length > 0 && !loading
         ? <div>References:</div>
         : <></>
       }
