@@ -11,7 +11,7 @@ const handleInputChange = (event, setInput) => {
 }
 
 function findVerdict(paragraph) {
-  const verdicts = ["TRUTHFUL", "AMBIGUOUS", "UNTRUTHFUL"];
+  const verdicts = ["TRUTHFUL", "AMBIGUOUS", "MISLEADING"];
 
   for (let verdict of verdicts) {
     if (paragraph.includes(verdict)) {
