@@ -7,7 +7,7 @@
         "scripting"
     ],
     "action": {
-        "default_popup": "fact-check-popup.html",
+        "default_popup": "check-popup.html",
         "default_icon": {
             "16": "icons/Search16x16_logo.png",
             "48": "icons/Search48x48_logo.png",

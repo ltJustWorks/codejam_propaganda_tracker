@@ -1,11 +1,18 @@
-// Example: send the text of a tweet when clicked
-document.addEventListener('click', function (event) {
-    let textToCheck = event.target.innerText;  // Simplified example
-    chrome.runtime.sendMessage({
-        contentScriptQuery: "fetchFactCheckData",
-        text: textToCheck
-    }, response => {
-        console.log('Fact Check Results:', response.factData);
-        // You can display the results here or send them to popup.js
-    });
+// content.js
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.action === "fetchTweetText") {
+        // Adjust this selector to target the tweet's text container on the Twitter website
+        const tweetTextContainer = document.querySelector('div[data-testid="tweetText"]');
+
+        if (tweetTextContainer) {
+            // Combine the text from each span element within the container
+            const tweetText = Array.from(tweetTextContainer.querySelectorAll('span')).map(span => span.textContent).join('');
+
+            sendResponse({ tweetText: tweetText });
+        } else {
+            sendResponse({ tweetText: 'Tweet text not found.' });
+        }
+
+        return true; // Required for asynchronous response
+    }
 });
