@@ -1,8 +1,8 @@
 import os
 import re
 
-api_key = "AIzaSyA_IGujkSQUJyVjEnjWQr6Xp1zx3def_8M"
-cse_id = "d51d5ea84965846df"
+api_key = "YOUR_API_KEY"
+cse_id = "YOUR_API_KEY"
 
 os.environ["GOOGLE_CSE_ID"] = cse_id
 os.environ["GOOGLE_API_KEY"] = api_key
